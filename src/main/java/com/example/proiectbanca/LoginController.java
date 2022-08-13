@@ -27,26 +27,36 @@ public class LoginController {
     @FXML
     private Label errorLabel;
 
+    public static String cnp;
+
+    public  String getCnp() {
+        return cnp;
+    }
+
+    public void setCnp(String cnp){
+        this.cnp=cnp;
+    }
+
     public void loginButtonOnAction(ActionEvent event){
         if(!textUser.getText().isBlank() && !textPass.getText().isBlank()){
             errorLabel.setText("Complete fields");
             if(validateLogin(textUser.getText(),textPass.getText()))
             {
                 errorLabel.setText("Welcome");
-                //AccountStage();
+                AccountStage();
 
 
             }else
                 errorLabel.setText("Invalid Login. Try again!");
 
         }else{
-            errorLabel.setText("Please enter username and password!");
+            errorLabel.setText("Complete fields");
         }
     }
     public void AccountStage(){
         try{
 
-            Parent root= FXMLLoader.load(getClass().getResource("login-view.fxml"));
+            Parent root= FXMLLoader.load(getClass().getResource("account-view.fxml"));
             Stage registrationStage= new Stage();
             registrationStage.setTitle("Gestiune Banca - Client");
             registrationStage.setScene(new Scene(root,552,465));
@@ -64,13 +74,14 @@ public class LoginController {
         Connection connectionDatabase= connectionNow.getConnection();
         boolean cnt=false;
 
-        String verifyLogin=" Select count(1) from Clienti where username='"+usernameTextField+"' and password = '"+ passwordPasswordField+"'";
+        String verifyLogin=" Select cnp from Clienti where username='"+usernameTextField+"' and password = '"+ passwordPasswordField+"'";
         try {
             Statement statement=connectionDatabase.createStatement();
             ResultSet queryResult= statement.executeQuery(verifyLogin);
             while(queryResult.next()){
-                if(queryResult.getInt(1)==1){
+                if(!queryResult.getString("cnp").isBlank()){
                     cnt=true;
+                    cnp = queryResult.getString("cnp");
                     break;
                 }
             }
