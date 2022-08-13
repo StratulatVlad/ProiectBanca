@@ -21,6 +21,8 @@ public class LoginController {
     @FXML
     private Button loginButton;
     @FXML
+    private Button registerButton;
+    @FXML
     private TextField textUser;
     @FXML
     private PasswordField textPass;
@@ -39,18 +41,18 @@ public class LoginController {
 
     public void loginButtonOnAction(ActionEvent event){
         if(!textUser.getText().isBlank() && !textPass.getText().isBlank()){
-            errorLabel.setText("Complete fields");
+            errorLabel.setText("Complete fields!");
             if(validateLogin(textUser.getText(),textPass.getText()))
             {
-                errorLabel.setText("Welcome");
+                errorLabel.setText("Welcome!");
                 AccountStage();
 
 
             }else
-                errorLabel.setText("Invalid Login. Try again!");
+                errorLabel.setText("Invalid Login!");
 
         }else{
-            errorLabel.setText("Complete fields");
+            errorLabel.setText("Complete fields!");
         }
     }
     public void AccountStage(){
@@ -94,6 +96,25 @@ public class LoginController {
             return true;
         else
             return false;
+    }
+
+    public void registerButtonOnAction(ActionEvent event){
+        registerStage();
+    }
+    public void registerStage(){
+        try{
+
+            Parent root= FXMLLoader.load(getClass().getResource("register-view.fxml"));
+            Stage registrationStage= new Stage();
+            registrationStage.setTitle("Gestiune Banca - Register");
+            registrationStage.setScene(new Scene(root,552,465));
+            registrationStage.show();
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
     }
 
     public void cancelButtonOnAction(ActionEvent e){

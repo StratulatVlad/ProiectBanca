@@ -27,7 +27,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="lichidareButton" layoutX="132.0" layoutY="287.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="259.0" text="Lichidare Cont">
+      <Button fx:id="lichidareButton" layoutX="132.0" layoutY="287.0" mnemonicParsing="false" onAction="#lichidareButtonOnAction" prefHeight="35.0" prefWidth="259.0" text="Lichidare Cont">
          <font>
             <Font size="14.0" />
          </font>

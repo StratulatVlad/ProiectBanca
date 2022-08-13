@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
@@ -30,11 +31,32 @@ public class AccountController implements Initializable {
         stage.close();
     }
 
+    public void lichidareButtonOnAction(ActionEvent event){
+        DBconnection connectionNow= new DBconnection();
+        Connection connectionDatabase= connectionNow.getConnection();
+        LoginController login = new LoginController();
+
+
+        String sql=" delete from Clienti where soldRON = 0 and soldEURO = 0 and cnp = "+login.getCnp();
+
+        try {
+            Statement statement=connectionDatabase.createStatement();
+            Integer queryResult= statement.executeUpdate(sql);
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DBconnection connectionNow= new DBconnection();
         Connection connectionDatabase= connectionNow.getConnection();
         LoginController login = new LoginController();
+
 
         String sql=" Select soldEURO, soldRON from Clienti where cnp = "+login.getCnp();
 
