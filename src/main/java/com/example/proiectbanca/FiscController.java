@@ -39,6 +39,13 @@ public class FiscController {
     private TableColumn<Tranzactii, String> sumaCol;
     @FXML
     private TableColumn<Tranzactii, String> valutaCol;
+    @FXML
+    private Button stopButton;
+    public void stopButtonOnAction(ActionEvent event){
+        clientiTable.getItems().clear();
+        tranzactiiTable.getItems().clear();
+        textCNP.setText(null);
+    }
 
     ObservableList<Clienti> clientiObservableList = FXCollections.observableArrayList();
     ObservableList<Tranzactii> tranzactiiObservableList = FXCollections.observableArrayList();
