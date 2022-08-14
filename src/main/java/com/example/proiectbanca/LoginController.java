@@ -41,18 +41,18 @@ public class LoginController {
 
     public void loginButtonOnAction(ActionEvent event){
         if(!textUser.getText().isBlank() && !textPass.getText().isBlank()){
-            errorLabel.setText("Complete fields!");
+            errorLabel.setText("Completeaza campurile");
             if(validateLogin(textUser.getText(),textPass.getText()))
             {
-                errorLabel.setText("Welcome!");
+                errorLabel.setText("Bine ai venit!");
                 AccountStage();
 
 
             }else
-                errorLabel.setText("Invalid Login!");
+                errorLabel.setText("Date invalide!");
 
         }else{
-            errorLabel.setText("Complete fields!");
+            errorLabel.setText("Completeaza campurile!");
         }
     }
     public void AccountStage(){

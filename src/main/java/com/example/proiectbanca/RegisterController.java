@@ -37,18 +37,18 @@ public class RegisterController {
         PreparedStatement pr = null;
 
 
-
         String sql = "INSERT INTO clienti (cnp, username, password, soldEURO, soldRON) VALUES ("+ textCNP.getText()+", '"+textUser.getText()+"', '"+textPass.getText()+"', "+textEURO.getText()+", "+textRON.getText()+")";
 
         try {
             Statement statement = connection.createStatement();
             Integer queryResult = statement.executeUpdate(sql);
 
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        registerLabel.setText("Done!");
+        registerLabel.setText("Ai fost inregistrat! Poti sa te loghezi!");
     }
 
 

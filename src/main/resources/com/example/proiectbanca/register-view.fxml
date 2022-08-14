@@ -32,6 +32,6 @@
       <TextField fx:id="textEURO" layoutX="241.0" layoutY="220.0" />
       <TextField fx:id="textRON" layoutX="241.0" layoutY="259.0" />
       <Button fx:id="registerButton" layoutX="122.0" layoutY="313.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="25.0" prefWidth="267.0" text="Register" />
-      <Label fx:id="registerLabel" layoutX="239.0" layoutY="364.0" prefHeight="17.0" prefWidth="34.0" />
+      <Label fx:id="registerLabel" layoutX="121.0" layoutY="364.0" prefHeight="17.0" prefWidth="267.0" />
    </children>
 </AnchorPane>

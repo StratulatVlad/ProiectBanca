@@ -2,7 +2,10 @@ package com.example.proiectbanca;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -12,6 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AccountController implements Initializable {
@@ -22,13 +26,18 @@ public class AccountController implements Initializable {
     @FXML
     private Label euroLabel;
     @FXML
-    private Button deprepButton;
+    private Button depretButton;
     @FXML
     private Button lichidareButton;
+    @FXML
+    private Label lichidareLabel;
 
     public void cancelButtonOnAction(ActionEvent e){
         Stage stage=(Stage) cancelButton.getScene().getWindow();
         stage.close();
+    }
+    public void depretButtonOnAction(ActionEvent event){
+
     }
 
     public void lichidareButtonOnAction(ActionEvent event){
@@ -37,11 +46,39 @@ public class AccountController implements Initializable {
         LoginController login = new LoginController();
 
 
-        String sql=" delete from Clienti where soldRON = 0 and soldEURO = 0 and cnp = "+login.getCnp();
+        String sql=" select soldRON, soldEURO from Clienti where cnp =" +login.getCnp();
 
         try {
             Statement statement=connectionDatabase.createStatement();
-            Integer queryResult= statement.executeUpdate(sql);
+            ResultSet queryResult= statement.executeQuery(sql);
+            while(queryResult.next()){
+                if(!Objects.equals(queryResult.getString("soldRON"), "0") && !Objects.equals(queryResult.getString("soldEURO"), "0")){
+                    lichidareLabel.setText("Pentru a lichida contul trebuie sa ai soldurile 0!");
+                }
+                else {
+                    lichidareStage();
+                    Stage stage=(Stage) lichidareButton.getScene().getWindow();
+                    stage.close();
+
+                }
+                }
+
+
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+    public void lichidareStage(){
+        try{
+
+            Parent root= FXMLLoader.load(getClass().getResource("lichidare-view.fxml"));
+            Stage registrationStage= new Stage();
+            registrationStage.setTitle("Gestiune Banca - Lichidare");
+            registrationStage.setScene(new Scene(root,339,155));
+            registrationStage.show();
 
 
         }catch(Exception e){
@@ -64,8 +101,8 @@ public class AccountController implements Initializable {
             Statement statement=connectionDatabase.createStatement();
             ResultSet queryResult= statement.executeQuery(sql);
             while(queryResult.next()){
-                ronLabel.setText(queryResult.getString("soldRON") + " RON");
-                euroLabel.setText(queryResult.getString("soldEURO") + " EURO");
+                ronLabel.setText(queryResult.getString("soldRON"));
+                euroLabel.setText(queryResult.getString("soldEURO"));
             }
 
         }catch(Exception e){

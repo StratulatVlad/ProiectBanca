@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="465.0" prefWidth="552.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proiectbanca.TranzactiiController">
+   <children>
+      <Label layoutX="193.0" layoutY="14.0" prefHeight="35.0" prefWidth="167.0" text="Gestiune Banca">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Button fx:id="cancelButton" layoutX="412.0" layoutY="400.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
+      <Label fx:id="errorLabel" layoutX="412.0" layoutY="130.0" prefHeight="17.0" prefWidth="99.0" />
+      <Label fx:id="lichidareLabel" layoutX="124.0" layoutY="344.0" prefHeight="17.0" prefWidth="279.0" />
+   </children>
+</AnchorPane>
