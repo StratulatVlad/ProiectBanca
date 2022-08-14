@@ -46,13 +46,17 @@ public class LoginController {
             {
                 errorLabel.setText("Bine ai venit!");
                 AccountStage();
+                textUser.setText(null);
+                textPass.setText(null);
 
 
-            }else
+            }else {
                 errorLabel.setText("Date invalide!");
 
+            }
         }else{
             errorLabel.setText("Completeaza campurile!");
+
         }
     }
     public void AccountStage(){

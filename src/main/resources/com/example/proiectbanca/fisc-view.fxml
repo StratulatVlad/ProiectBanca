@@ -22,7 +22,7 @@
         </columns>
       </TableView>
       <Button fx:id="cautaButton" layoutX="358.0" layoutY="78.0" mnemonicParsing="false" onAction="#cautaButtonOnAction" prefHeight="25.0" prefWidth="92.0" text="Start" />
-      <TableView fx:id="clientiTable" layoutX="102.0" layoutY="135.0" prefHeight="67.0" prefWidth="348.0">
+      <TableView fx:id="clientiTable" layoutX="102.0" layoutY="135.0" prefHeight="59.0" prefWidth="348.0">
         <columns>
           <TableColumn fx:id="userCol" prefWidth="115.0" text="user" />
             <TableColumn fx:id="euroCol" prefWidth="118.0" text="soldEURO" />
