@@ -37,7 +37,23 @@ public class AccountController implements Initializable {
         stage.close();
     }
     public void depretButtonOnAction(ActionEvent event){
+        depRepStage();
+    }
 
+    public void depRepStage(){
+        try{
+
+            Parent root= FXMLLoader.load(getClass().getResource("tranzactii-view.fxml"));
+            Stage registrationStage= new Stage();
+            registrationStage.setTitle("Gestiune Banca - Tranzactii");
+            registrationStage.setScene(new Scene(root,552,465));
+            registrationStage.show();
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
     }
 
     public void lichidareButtonOnAction(ActionEvent event){
