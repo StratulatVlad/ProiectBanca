@@ -13,7 +13,28 @@ public class HelloController {
 
     @FXML
     private Button clientButton;
+    @FXML
+    private Button fiscButton;
 
+    public void fiscButtonOnAction(ActionEvent event){
+        createFiscStage();
+
+    }
+    public void createFiscStage(){
+        try{
+
+            Parent root= FXMLLoader.load(getClass().getResource("fisc-view.fxml"));
+            Stage registrationStage= new Stage();
+            registrationStage.setTitle("Gestiune Banca - Fisc");
+            registrationStage.setScene(new Scene(root,552,465));
+            registrationStage.show();
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
 
     public void clientButtonOnAction(ActionEvent event){
             createLoginStage();
