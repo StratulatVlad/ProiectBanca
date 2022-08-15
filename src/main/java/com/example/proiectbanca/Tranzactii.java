@@ -52,4 +52,10 @@ public class Tranzactii {
         this.suma = suma;
         this.valuta = valuta;
     }
+    public Tranzactii(String cnp, String tip_tranzactie, String suma, String valuta) {
+        this.cnp = cnp;
+        this.tip_tranzactie = tip_tranzactie;
+        this.suma = suma;
+        this.valuta = valuta;
+    }
 }

@@ -18,7 +18,23 @@ public class HelloController {
 
     public void fiscButtonOnAction(ActionEvent event){
         createFiscStage();
+        createUpdateStage();
 
+    }
+    public void createUpdateStage(){
+        try{
+
+            Parent root= FXMLLoader.load(getClass().getResource("update-view.fxml"));
+            Stage registrationStage= new Stage();
+            registrationStage.setTitle("Gestiune Banca - Update");
+            registrationStage.setScene(new Scene(root,339,155));
+            registrationStage.show();
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
     }
     public void createFiscStage(){
         try{

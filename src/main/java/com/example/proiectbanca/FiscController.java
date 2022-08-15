@@ -41,6 +41,26 @@ public class FiscController {
     private TableColumn<Tranzactii, String> valutaCol;
     @FXML
     private Button stopButton;
+    @FXML
+    private Button inboxButton;
+    public void inboxButtonOnAction(ActionEvent event){
+        createInboxStage();
+    }
+    public void createInboxStage(){
+        try{
+
+            Parent root= FXMLLoader.load(getClass().getResource("inbox-view.fxml"));
+            Stage registrationStage= new Stage();
+            registrationStage.setTitle("Gestiune Banca - Inbox");
+            registrationStage.setScene(new Scene(root,552,465));
+            registrationStage.show();
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
     public void stopButtonOnAction(ActionEvent event){
         clientiTable.getItems().clear();
         tranzactiiTable.getItems().clear();
