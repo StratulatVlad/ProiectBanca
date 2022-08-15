@@ -77,7 +77,7 @@ public class AccountController implements Initializable {
                     stage.close();
 
                 }
-                }
+            }
 
 
 

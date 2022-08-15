@@ -20,10 +20,13 @@ public class LichidareController {
 
 
         String sql=" delete from Clienti where soldRON = 0 and soldEURO = 0 and cnp = "+login.getCnp();
+        String sql2=" delete from Tranzactii where cnp = "+login.getCnp();
 
         try {
             Statement statement=connectionDatabase.createStatement();
+            Integer queryResult2= statement.executeUpdate(sql2);
             Integer queryResult= statement.executeUpdate(sql);
+
             Stage stage=(Stage) yesButton.getScene().getWindow();
             stage.close();
 

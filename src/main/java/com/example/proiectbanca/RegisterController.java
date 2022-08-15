@@ -41,11 +41,14 @@ public class RegisterController {
             Integer queryResult = statement.executeUpdate(sql);
 
 
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         registerLabel.setText("Ai fost inregistrat! Poti sa te loghezi!");
+        Stage stage=(Stage) registerButton.getScene().getWindow();
+        stage.close();
     }
 
 
